@@ -54,6 +54,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Fm_Login.resx">
+      <DependentUpon>Fm_Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,6 +78,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ModuloControleEstoque.Controle\ModuloControleEstoque.Controle.csproj">
+      <Project>{94452f5a-8434-4cf1-8610-eb4b8caad64d}</Project>
+      <Name>ModuloControleEstoque.Controle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModuloControleEstoque.Modelo\ModuloControleEstoque.Modelo.csproj">
+      <Project>{4b008112-6466-4e31-9ff9-cc44caff9cc8}</Project>
+      <Name>ModuloControleEstoque.Modelo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
