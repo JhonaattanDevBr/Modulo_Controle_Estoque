@@ -46,16 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fm_Login.cs">
+    <Compile Include="Int_Login\Fm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fm_Login.Designer.cs">
+    <Compile Include="Int_Login\Fm_Login.Designer.cs">
       <DependentUpon>Fm_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Int_Principal\Fm_AreaRestrita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Int_Principal\Fm_AreaRestrita.Designer.cs">
+      <DependentUpon>Fm_AreaRestrita.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Fm_Login.resx">
+    <EmbeddedResource Include="Int_Login\Fm_Login.resx">
       <DependentUpon>Fm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Int_Principal\Fm_AreaRestrita.resx">
+      <DependentUpon>Fm_AreaRestrita.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
