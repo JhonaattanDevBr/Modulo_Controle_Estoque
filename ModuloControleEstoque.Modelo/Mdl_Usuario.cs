@@ -67,9 +67,5 @@ namespace ModuloControleEstoque.Modelo
             }
         }
 
-        public bool AutenticarLogin()
-        {
-            return false;
-        }
     }
 }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ModuloControleEstoque.Controle;
@@ -18,6 +19,8 @@ namespace ModuloControleEstoque.View
     {
         Mdl_Usuario _mdlUsuario = new Mdl_Usuario();
         Ctl_Usuario _ctlUsuario = new Ctl_Usuario();
+
+        Thread _tdAreaRestrita;
 
         public Fm_Login()
         {
@@ -88,9 +91,10 @@ namespace ModuloControleEstoque.View
                 bool retornoLogin = _ctlUsuario.ConsultarUsuario(_mdlUsuario);
                 if (retornoLogin)
                 {
-                    MessageBox.Show("Login realizado com sucesso.");
-                    Fm_AreaRestrita areaRestrita = new Fm_AreaRestrita();
-                    areaRestrita.ShowDialog();
+                    this.Close();
+                    _tdAreaRestrita = new Thread(AcessarAreaRestrita);
+                    _tdAreaRestrita.SetApartmentState(ApartmentState.STA);
+                    _tdAreaRestrita.Start();
                 }
                 else
                 {
@@ -111,6 +115,12 @@ namespace ModuloControleEstoque.View
             {
                 this.btnLogin_Click(sender, e);
             }
+        }
+
+        private void AcessarAreaRestrita()
+        {
+            string nome = _ctlUsuario.NomeUsuario(_mdlUsuario);
+            Application.Run(new Fm_AreaRestrita(nome));
         }
     }
 }
