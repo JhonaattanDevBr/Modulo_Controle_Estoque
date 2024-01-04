@@ -60,6 +60,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserC_Cadastros\Cad_Fornecedores.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserC_Cadastros\Cad_Fornecedores.Designer.cs">
+      <DependentUpon>Cad_Fornecedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserC_Cadastros\Cad_MateriaP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserC_Cadastros\Cad_MateriaP.Designer.cs">
+      <DependentUpon>Cad_MateriaP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserC_Cadastros\Cad_Produtos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserC_Cadastros\Cad_Produtos.Designer.cs">
+      <DependentUpon>Cad_Produtos.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Int_Login\Fm_Login.resx">
       <DependentUpon>Fm_Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,6 +93,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserC_Cadastros\Cad_Fornecedores.resx">
+      <DependentUpon>Cad_Fornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserC_Cadastros\Cad_MateriaP.resx">
+      <DependentUpon>Cad_MateriaP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserC_Cadastros\Cad_Produtos.resx">
+      <DependentUpon>Cad_Produtos.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

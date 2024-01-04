@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModuloControleEstoque.View.UserC_Cadastros;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -78,7 +79,6 @@ namespace ModuloControleEstoque.View.Int_Principal
 
         private void btnCadastro_Click(object sender, EventArgs e)
         {
-            pnlMenuDireita.Visible = true;
             gpbGrupoBotoes.Visible = true; gpbGrupoBotoes.Text = "Novo Cadastro";
             btnBotaoUm.Visible = true; btnBotaoUm.Text = "Fornecedor";
             btnBotaoDois.Visible = true; btnBotaoDois.Text = "Matéria Prima";
@@ -90,7 +90,6 @@ namespace ModuloControleEstoque.View.Int_Principal
 
         private void btnConsultas_Click(object sender, EventArgs e)
         {
-            pnlMenuDireita.Visible = true;
             gpbGrupoBotoes.Visible = true; gpbGrupoBotoes.Text = "Realizar Consulta";
             btnBotaoUm.Visible = true; btnBotaoUm.Text = "Forncedores";
             btnBotaoDois.Visible = true; btnBotaoDois.Text = "Matérias Primas";
@@ -161,6 +160,119 @@ namespace ModuloControleEstoque.View.Int_Principal
         private void btnBotaoSeis_MouseLeave(object sender, EventArgs e)
         {
             btnBotaoSeis.BackColor = SystemColors.Window;
+        }
+
+
+        // Preciso rever todo esse código ↓↓↓
+        private void MostrarFormulario(string formulario)
+        {
+            switch (formulario)
+            {
+                case "Fornecedor":
+                    Cad_Fornecedores _Fornecedores = new Cad_Fornecedores();
+                    pnlExibir.Controls.Clear();
+                    _Fornecedores.Dock = DockStyle.Fill;
+                    pnlExibir.Controls.Add(_Fornecedores);
+                    break;
+
+                case "Matéria Prima":
+                    Cad_MateriaP _MateriaP = new Cad_MateriaP();
+                    pnlExibir.Controls.Clear();
+                    _MateriaP.Dock = DockStyle.Fill;
+                    pnlExibir.Controls.Add(_MateriaP);
+                    break;
+
+                case "Produto":
+                    Cad_Produtos _Produtos = new Cad_Produtos();
+                    pnlExibir.Controls.Clear();
+                    _Produtos.Dock = DockStyle.Fill;
+                    pnlExibir.Controls.Add(_Produtos);
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        private void btnBotaoUm_Click(object sender, EventArgs e)
+        {
+            string formularioParaExibir = btnBotaoUm.Text;
+            if (pnlExibir.Visible && pnlExibir.Controls.Count > 0)
+            {
+                DialogResult alterarFuncao =  MessageBox.Show("Sair agora irá encerrar qualquer processo que não tenha sido concluído.\nDeseja Continuar?", "ATENÇÃO",
+                                                               MessageBoxButtons.YesNo,
+                                                               MessageBoxIcon.Question);
+                if(alterarFuncao == DialogResult.Yes)
+                {
+                    pnlExibir.Visible = true;
+                    pnlExibir.Dock = DockStyle.Fill;
+                    MostrarFormulario(formularioParaExibir);
+                    btnBotaoUm.Enabled = false; btnBotaoDois.Enabled = true; btnBotaoTres.Enabled = true; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
+
+                }
+            }
+            else
+            {
+                pnlExibir.Visible = true;
+                pnlExibir.Dock = DockStyle.Fill;
+                MostrarFormulario(formularioParaExibir);
+                btnBotaoUm.Enabled = false; btnBotaoDois.Enabled = true; btnBotaoTres.Enabled = true; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
+
+            }
+        }
+
+        private void btnBotaoDois_Click(object sender, EventArgs e)
+        {
+            string formularioParaExibir = btnBotaoDois.Text;
+            if (pnlExibir.Visible && pnlExibir.Controls.Count > 0)
+            {
+                DialogResult alterarFuncao = MessageBox.Show("Sair agora irá encerrar qualquer processo que não tenha sido concluído.\nDeseja Continuar?", "ATENÇÃO",
+                                                               MessageBoxButtons.YesNo,
+                                                               MessageBoxIcon.Question);
+                if(alterarFuncao == DialogResult.Yes)
+                {
+                    pnlExibir.Visible = true;
+                    pnlExibir.Dock = DockStyle.Fill;
+                    MostrarFormulario(formularioParaExibir);
+                    btnBotaoUm.Enabled = true; btnBotaoDois.Enabled = false; btnBotaoTres.Enabled = true; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
+
+                }
+            }
+            else
+            {
+                pnlExibir.Visible = true;
+                pnlExibir.Dock = DockStyle.Fill;
+                MostrarFormulario(formularioParaExibir);
+                btnBotaoUm.Enabled = true; btnBotaoDois.Enabled = false; btnBotaoTres.Enabled = true; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
+
+            }
+        }
+
+        private void btnBotaoTres_Click(object sender, EventArgs e)
+        {
+            string formularioParaExibir = btnBotaoTres.Text;
+            if (pnlExibir.Visible && pnlExibir.Controls.Count > 0)
+            {
+                DialogResult alterarFuncao = MessageBox.Show("Sair agora irá encerrar qualquer processo que não tenha sido concluído.\nDeseja Continuar?", "ATENÇÃO",
+                                                               MessageBoxButtons.YesNo,
+                                                               MessageBoxIcon.Question);
+                if(alterarFuncao == DialogResult.Yes)
+                {
+                    pnlExibir.Visible = true;
+                    pnlExibir.Dock = DockStyle.Fill;
+                    MostrarFormulario(formularioParaExibir);
+                    btnBotaoUm.Enabled = true; btnBotaoDois.Enabled = true; btnBotaoTres.Enabled = false; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
+
+                }
+            }
+            else
+            {
+                pnlExibir.Visible = true;
+                pnlExibir.Dock = DockStyle.Fill;
+                MostrarFormulario(formularioParaExibir);
+                btnBotaoUm.Enabled = true; btnBotaoDois.Enabled = true; btnBotaoTres.Enabled = false; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
+
+            }
         }
     }
 }

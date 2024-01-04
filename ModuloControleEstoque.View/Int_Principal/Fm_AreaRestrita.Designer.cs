@@ -42,20 +42,21 @@
             this.btnAjuda = new System.Windows.Forms.Button();
             this.btnConsultas = new System.Windows.Forms.Button();
             this.btnCadastro = new System.Windows.Forms.Button();
-            this.pnlMenuDireita = new System.Windows.Forms.Panel();
+            this.gpbGrupoBotoes = new System.Windows.Forms.GroupBox();
+            this.btnBotaoSeis = new System.Windows.Forms.Button();
+            this.btnBotaoCinco = new System.Windows.Forms.Button();
+            this.btnBotaoQuatro = new System.Windows.Forms.Button();
+            this.btnBotaoTres = new System.Windows.Forms.Button();
             this.btnBotaoUm = new System.Windows.Forms.Button();
             this.btnBotaoDois = new System.Windows.Forms.Button();
-            this.btnBotaoTres = new System.Windows.Forms.Button();
-            this.gpbGrupoBotoes = new System.Windows.Forms.GroupBox();
-            this.btnBotaoQuatro = new System.Windows.Forms.Button();
-            this.btnBotaoCinco = new System.Windows.Forms.Button();
-            this.btnBotaoSeis = new System.Windows.Forms.Button();
+            this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.pnlExibir = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.pnlMenuEsquerda.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pnlMenuDireita.SuspendLayout();
             this.gpbGrupoBotoes.SuspendLayout();
+            this.pnlPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -207,111 +208,24 @@
             this.btnCadastro.MouseEnter += new System.EventHandler(this.btnCadastro_MouseEnter);
             this.btnCadastro.MouseLeave += new System.EventHandler(this.btnCadastro_MouseLeave);
             // 
-            // pnlMenuDireita
-            // 
-            this.pnlMenuDireita.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlMenuDireita.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlMenuDireita.BackgroundImage")));
-            this.pnlMenuDireita.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlMenuDireita.Controls.Add(this.gpbGrupoBotoes);
-            this.pnlMenuDireita.Location = new System.Drawing.Point(201, 24);
-            this.pnlMenuDireita.Name = "pnlMenuDireita";
-            this.pnlMenuDireita.Size = new System.Drawing.Size(733, 103);
-            this.pnlMenuDireita.TabIndex = 4;
-            this.pnlMenuDireita.Visible = false;
-            // 
-            // btnBotaoUm
-            // 
-            this.btnBotaoUm.BackColor = System.Drawing.Color.White;
-            this.btnBotaoUm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBotaoUm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnBotaoUm.Location = new System.Drawing.Point(6, 35);
-            this.btnBotaoUm.Name = "btnBotaoUm";
-            this.btnBotaoUm.Size = new System.Drawing.Size(110, 45);
-            this.btnBotaoUm.TabIndex = 0;
-            this.btnBotaoUm.Text = "Botão 1";
-            this.btnBotaoUm.UseVisualStyleBackColor = false;
-            this.btnBotaoUm.Visible = false;
-            this.btnBotaoUm.MouseEnter += new System.EventHandler(this.btnBotaoUm_MouseEnter);
-            this.btnBotaoUm.MouseLeave += new System.EventHandler(this.btnBotaoUm_MouseLeave);
-            // 
-            // btnBotaoDois
-            // 
-            this.btnBotaoDois.BackColor = System.Drawing.Color.White;
-            this.btnBotaoDois.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBotaoDois.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnBotaoDois.Location = new System.Drawing.Point(126, 35);
-            this.btnBotaoDois.Name = "btnBotaoDois";
-            this.btnBotaoDois.Size = new System.Drawing.Size(110, 45);
-            this.btnBotaoDois.TabIndex = 1;
-            this.btnBotaoDois.Text = "Botão 2";
-            this.btnBotaoDois.UseVisualStyleBackColor = false;
-            this.btnBotaoDois.Visible = false;
-            this.btnBotaoDois.MouseEnter += new System.EventHandler(this.btnBotaoDois_MouseEnter);
-            this.btnBotaoDois.MouseLeave += new System.EventHandler(this.btnBotaoDois_MouseLeave);
-            // 
-            // btnBotaoTres
-            // 
-            this.btnBotaoTres.BackColor = System.Drawing.Color.White;
-            this.btnBotaoTres.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBotaoTres.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnBotaoTres.Location = new System.Drawing.Point(246, 35);
-            this.btnBotaoTres.Name = "btnBotaoTres";
-            this.btnBotaoTres.Size = new System.Drawing.Size(110, 45);
-            this.btnBotaoTres.TabIndex = 2;
-            this.btnBotaoTres.Text = "Botão 3";
-            this.btnBotaoTres.UseVisualStyleBackColor = false;
-            this.btnBotaoTres.Visible = false;
-            this.btnBotaoTres.MouseEnter += new System.EventHandler(this.btnBotaoTres_MouseEnter);
-            this.btnBotaoTres.MouseLeave += new System.EventHandler(this.btnBotaoTres_MouseLeave);
-            // 
             // gpbGrupoBotoes
             // 
-            this.gpbGrupoBotoes.BackColor = System.Drawing.Color.Transparent;
+            this.gpbGrupoBotoes.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.gpbGrupoBotoes.Controls.Add(this.btnBotaoSeis);
             this.gpbGrupoBotoes.Controls.Add(this.btnBotaoCinco);
             this.gpbGrupoBotoes.Controls.Add(this.btnBotaoQuatro);
             this.gpbGrupoBotoes.Controls.Add(this.btnBotaoTres);
             this.gpbGrupoBotoes.Controls.Add(this.btnBotaoUm);
             this.gpbGrupoBotoes.Controls.Add(this.btnBotaoDois);
+            this.gpbGrupoBotoes.Dock = System.Windows.Forms.DockStyle.Top;
             this.gpbGrupoBotoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.gpbGrupoBotoes.Location = new System.Drawing.Point(3, 3);
+            this.gpbGrupoBotoes.Location = new System.Drawing.Point(0, 0);
             this.gpbGrupoBotoes.Name = "gpbGrupoBotoes";
-            this.gpbGrupoBotoes.Size = new System.Drawing.Size(723, 93);
+            this.gpbGrupoBotoes.Size = new System.Drawing.Size(733, 93);
             this.gpbGrupoBotoes.TabIndex = 0;
             this.gpbGrupoBotoes.TabStop = false;
             this.gpbGrupoBotoes.Text = "Grupo de Botões";
             this.gpbGrupoBotoes.Visible = false;
-            // 
-            // btnBotaoQuatro
-            // 
-            this.btnBotaoQuatro.BackColor = System.Drawing.Color.White;
-            this.btnBotaoQuatro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBotaoQuatro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnBotaoQuatro.Location = new System.Drawing.Point(366, 35);
-            this.btnBotaoQuatro.Name = "btnBotaoQuatro";
-            this.btnBotaoQuatro.Size = new System.Drawing.Size(110, 45);
-            this.btnBotaoQuatro.TabIndex = 3;
-            this.btnBotaoQuatro.Text = "Botão 4";
-            this.btnBotaoQuatro.UseVisualStyleBackColor = false;
-            this.btnBotaoQuatro.Visible = false;
-            this.btnBotaoQuatro.MouseEnter += new System.EventHandler(this.btnBotaoQuatro_MouseEnter);
-            this.btnBotaoQuatro.MouseLeave += new System.EventHandler(this.btnBotaoQuatro_MouseLeave);
-            // 
-            // btnBotaoCinco
-            // 
-            this.btnBotaoCinco.BackColor = System.Drawing.Color.White;
-            this.btnBotaoCinco.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBotaoCinco.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnBotaoCinco.Location = new System.Drawing.Point(486, 35);
-            this.btnBotaoCinco.Name = "btnBotaoCinco";
-            this.btnBotaoCinco.Size = new System.Drawing.Size(110, 45);
-            this.btnBotaoCinco.TabIndex = 4;
-            this.btnBotaoCinco.Text = "Botão 5";
-            this.btnBotaoCinco.UseVisualStyleBackColor = false;
-            this.btnBotaoCinco.Visible = false;
-            this.btnBotaoCinco.MouseEnter += new System.EventHandler(this.btnBotaoCinco_MouseEnter);
-            this.btnBotaoCinco.MouseLeave += new System.EventHandler(this.btnBotaoCinco_MouseLeave);
             // 
             // btnBotaoSeis
             // 
@@ -328,13 +242,113 @@
             this.btnBotaoSeis.MouseEnter += new System.EventHandler(this.btnBotaoSeis_MouseEnter);
             this.btnBotaoSeis.MouseLeave += new System.EventHandler(this.btnBotaoSeis_MouseLeave);
             // 
+            // btnBotaoCinco
+            // 
+            this.btnBotaoCinco.BackColor = System.Drawing.Color.White;
+            this.btnBotaoCinco.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBotaoCinco.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnBotaoCinco.Location = new System.Drawing.Point(486, 35);
+            this.btnBotaoCinco.Name = "btnBotaoCinco";
+            this.btnBotaoCinco.Size = new System.Drawing.Size(110, 45);
+            this.btnBotaoCinco.TabIndex = 4;
+            this.btnBotaoCinco.Text = "Botão 5";
+            this.btnBotaoCinco.UseVisualStyleBackColor = false;
+            this.btnBotaoCinco.Visible = false;
+            this.btnBotaoCinco.MouseEnter += new System.EventHandler(this.btnBotaoCinco_MouseEnter);
+            this.btnBotaoCinco.MouseLeave += new System.EventHandler(this.btnBotaoCinco_MouseLeave);
+            // 
+            // btnBotaoQuatro
+            // 
+            this.btnBotaoQuatro.BackColor = System.Drawing.Color.White;
+            this.btnBotaoQuatro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBotaoQuatro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnBotaoQuatro.Location = new System.Drawing.Point(366, 35);
+            this.btnBotaoQuatro.Name = "btnBotaoQuatro";
+            this.btnBotaoQuatro.Size = new System.Drawing.Size(110, 45);
+            this.btnBotaoQuatro.TabIndex = 3;
+            this.btnBotaoQuatro.Text = "Botão 4";
+            this.btnBotaoQuatro.UseVisualStyleBackColor = false;
+            this.btnBotaoQuatro.Visible = false;
+            this.btnBotaoQuatro.MouseEnter += new System.EventHandler(this.btnBotaoQuatro_MouseEnter);
+            this.btnBotaoQuatro.MouseLeave += new System.EventHandler(this.btnBotaoQuatro_MouseLeave);
+            // 
+            // btnBotaoTres
+            // 
+            this.btnBotaoTres.BackColor = System.Drawing.Color.White;
+            this.btnBotaoTres.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBotaoTres.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnBotaoTres.Location = new System.Drawing.Point(246, 35);
+            this.btnBotaoTres.Name = "btnBotaoTres";
+            this.btnBotaoTres.Size = new System.Drawing.Size(110, 45);
+            this.btnBotaoTres.TabIndex = 2;
+            this.btnBotaoTres.Text = "Botão 3";
+            this.btnBotaoTres.UseVisualStyleBackColor = false;
+            this.btnBotaoTres.Visible = false;
+            this.btnBotaoTres.Click += new System.EventHandler(this.btnBotaoTres_Click);
+            this.btnBotaoTres.MouseEnter += new System.EventHandler(this.btnBotaoTres_MouseEnter);
+            this.btnBotaoTres.MouseLeave += new System.EventHandler(this.btnBotaoTres_MouseLeave);
+            // 
+            // btnBotaoUm
+            // 
+            this.btnBotaoUm.BackColor = System.Drawing.Color.White;
+            this.btnBotaoUm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBotaoUm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnBotaoUm.Location = new System.Drawing.Point(6, 35);
+            this.btnBotaoUm.Name = "btnBotaoUm";
+            this.btnBotaoUm.Size = new System.Drawing.Size(110, 45);
+            this.btnBotaoUm.TabIndex = 0;
+            this.btnBotaoUm.Text = "Botão 1";
+            this.btnBotaoUm.UseVisualStyleBackColor = false;
+            this.btnBotaoUm.Visible = false;
+            this.btnBotaoUm.Click += new System.EventHandler(this.btnBotaoUm_Click);
+            this.btnBotaoUm.MouseEnter += new System.EventHandler(this.btnBotaoUm_MouseEnter);
+            this.btnBotaoUm.MouseLeave += new System.EventHandler(this.btnBotaoUm_MouseLeave);
+            // 
+            // btnBotaoDois
+            // 
+            this.btnBotaoDois.BackColor = System.Drawing.Color.White;
+            this.btnBotaoDois.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBotaoDois.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnBotaoDois.Location = new System.Drawing.Point(126, 35);
+            this.btnBotaoDois.Name = "btnBotaoDois";
+            this.btnBotaoDois.Size = new System.Drawing.Size(110, 45);
+            this.btnBotaoDois.TabIndex = 1;
+            this.btnBotaoDois.Text = "Botão 2";
+            this.btnBotaoDois.UseVisualStyleBackColor = false;
+            this.btnBotaoDois.Visible = false;
+            this.btnBotaoDois.Click += new System.EventHandler(this.btnBotaoDois_Click);
+            this.btnBotaoDois.MouseEnter += new System.EventHandler(this.btnBotaoDois_MouseEnter);
+            this.btnBotaoDois.MouseLeave += new System.EventHandler(this.btnBotaoDois_MouseLeave);
+            // 
+            // pnlPrincipal
+            // 
+            this.pnlPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlPrincipal.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.pnlPrincipal.Controls.Add(this.pnlExibir);
+            this.pnlPrincipal.Controls.Add(this.gpbGrupoBotoes);
+            this.pnlPrincipal.Location = new System.Drawing.Point(201, 24);
+            this.pnlPrincipal.Name = "pnlPrincipal";
+            this.pnlPrincipal.Size = new System.Drawing.Size(733, 557);
+            this.pnlPrincipal.TabIndex = 4;
+            // 
+            // pnlExibir
+            // 
+            this.pnlExibir.BackColor = System.Drawing.Color.BurlyWood;
+            this.pnlExibir.Location = new System.Drawing.Point(1, 92);
+            this.pnlExibir.Name = "pnlExibir";
+            this.pnlExibir.Size = new System.Drawing.Size(732, 465);
+            this.pnlExibir.TabIndex = 1;
+            this.pnlExibir.Visible = false;
+            // 
             // Fm_AreaRestrita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(934, 581);
-            this.Controls.Add(this.pnlMenuDireita);
+            this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.pnlMenuEsquerda);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -350,8 +364,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pnlMenuDireita.ResumeLayout(false);
             this.gpbGrupoBotoes.ResumeLayout(false);
+            this.pnlPrincipal.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -372,7 +386,6 @@
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblNomeUsuario;
-        private System.Windows.Forms.Panel pnlMenuDireita;
         private System.Windows.Forms.GroupBox gpbGrupoBotoes;
         private System.Windows.Forms.Button btnBotaoTres;
         private System.Windows.Forms.Button btnBotaoUm;
@@ -380,5 +393,7 @@
         private System.Windows.Forms.Button btnBotaoSeis;
         private System.Windows.Forms.Button btnBotaoCinco;
         private System.Windows.Forms.Button btnBotaoQuatro;
+        private System.Windows.Forms.Panel pnlPrincipal;
+        private System.Windows.Forms.Panel pnlExibir;
     }
 }
