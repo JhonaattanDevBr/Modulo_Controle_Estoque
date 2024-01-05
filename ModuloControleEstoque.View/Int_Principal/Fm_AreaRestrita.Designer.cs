@@ -254,6 +254,7 @@
             this.btnBotaoCinco.Text = "Botão 5";
             this.btnBotaoCinco.UseVisualStyleBackColor = false;
             this.btnBotaoCinco.Visible = false;
+            this.btnBotaoCinco.Click += new System.EventHandler(this.btnBotaoCinco_Click);
             this.btnBotaoCinco.MouseEnter += new System.EventHandler(this.btnBotaoCinco_MouseEnter);
             this.btnBotaoCinco.MouseLeave += new System.EventHandler(this.btnBotaoCinco_MouseLeave);
             // 
@@ -269,6 +270,7 @@
             this.btnBotaoQuatro.Text = "Botão 4";
             this.btnBotaoQuatro.UseVisualStyleBackColor = false;
             this.btnBotaoQuatro.Visible = false;
+            this.btnBotaoQuatro.Click += new System.EventHandler(this.btnBotaoQuatro_Click);
             this.btnBotaoQuatro.MouseEnter += new System.EventHandler(this.btnBotaoQuatro_MouseEnter);
             this.btnBotaoQuatro.MouseLeave += new System.EventHandler(this.btnBotaoQuatro_MouseLeave);
             // 

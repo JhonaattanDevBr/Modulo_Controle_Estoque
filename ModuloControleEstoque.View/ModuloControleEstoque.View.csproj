@@ -78,6 +78,36 @@
     <Compile Include="UserC_Cadastros\Cad_Produtos.Designer.cs">
       <DependentUpon>Cad_Produtos.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserC_Cadastros\Con_EntradaMP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserC_Cadastros\Con_EntradaMP.Designer.cs">
+      <DependentUpon>Con_EntradaMP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserC_Cadastros\Con_EntradaProdutos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserC_Cadastros\Con_EntradaProdutos.Designer.cs">
+      <DependentUpon>Con_EntradaProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserC_Cadastros\Con_Fornecedores.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserC_Cadastros\Con_Fornecedores.Designer.cs">
+      <DependentUpon>Con_Fornecedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserC_Cadastros\Con_MateriasPrimas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserC_Cadastros\Con_MateriasPrimas.Designer.cs">
+      <DependentUpon>Con_MateriasPrimas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserC_Cadastros\Con_Produtos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserC_Cadastros\Con_Produtos.Designer.cs">
+      <DependentUpon>Con_Produtos.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Int_Login\Fm_Login.resx">
       <DependentUpon>Fm_Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,6 +131,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserC_Cadastros\Cad_Produtos.resx">
       <DependentUpon>Cad_Produtos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserC_Cadastros\Con_EntradaMP.resx">
+      <DependentUpon>Con_EntradaMP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserC_Cadastros\Con_EntradaProdutos.resx">
+      <DependentUpon>Con_EntradaProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserC_Cadastros\Con_Fornecedores.resx">
+      <DependentUpon>Con_Fornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserC_Cadastros\Con_MateriasPrimas.resx">
+      <DependentUpon>Con_MateriasPrimas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserC_Cadastros\Con_Produtos.resx">
+      <DependentUpon>Con_Produtos.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

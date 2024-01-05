@@ -99,7 +99,7 @@ namespace ModuloControleEstoque.View.Int_Principal
             btnBotaoSeis.Visible = true; btnBotaoSeis.Text = "Saída Produtos";
         }
 
-        // Cores dos botões superiores
+        // Cores dos botões superiores otário
         private void btnBotaoUm_MouseEnter(object sender, EventArgs e)
         {
             btnBotaoUm.BackColor = Color.BurlyWood;
@@ -169,10 +169,10 @@ namespace ModuloControleEstoque.View.Int_Principal
             switch (formulario)
             {
                 case "Fornecedor":
-                    Cad_Fornecedores _Fornecedores = new Cad_Fornecedores();
+                    Cad_Fornecedores _Fornecedor = new Cad_Fornecedores();
                     pnlExibir.Controls.Clear();
-                    _Fornecedores.Dock = DockStyle.Fill;
-                    pnlExibir.Controls.Add(_Fornecedores);
+                    _Fornecedor.Dock = DockStyle.Fill;
+                    pnlExibir.Controls.Add(_Fornecedor);
                     break;
 
                 case "Matéria Prima":
@@ -183,10 +183,45 @@ namespace ModuloControleEstoque.View.Int_Principal
                     break;
 
                 case "Produto":
-                    Cad_Produtos _Produtos = new Cad_Produtos();
+                    Cad_Produtos _Produto = new Cad_Produtos();
+                    pnlExibir.Controls.Clear();
+                    _Produto.Dock = DockStyle.Fill;
+                    pnlExibir.Controls.Add(_Produto);
+                    break;
+
+                case "Forncedores":
+                    Con_Fornecedores _Fornecedores = new Con_Fornecedores();
+                    pnlExibir.Controls.Clear();
+                    _Fornecedores.Dock = DockStyle.Fill;
+                    pnlExibir.Controls.Add(_Fornecedores);
+                    break;
+
+                case "Matérias Primas":
+                    Con_MateriasPrimas _MateriasPrimas = new Con_MateriasPrimas();
+                    pnlExibir.Controls.Clear();
+                    _MateriasPrimas.Dock = DockStyle.Fill;
+                    pnlExibir.Controls.Add(_MateriasPrimas);
+                    break;
+
+                case "Produtos":
+                    Con_Produtos _Produtos = new Con_Produtos();
                     pnlExibir.Controls.Clear();
                     _Produtos.Dock = DockStyle.Fill;
                     pnlExibir.Controls.Add(_Produtos);
+                    break;
+
+                case "Entrada MP":
+                    Con_EntradaMP _EntradaMP = new Con_EntradaMP();
+                    pnlExibir.Controls.Clear();
+                    _EntradaMP.Dock = DockStyle.Fill;
+                    pnlExibir.Controls.Add(_EntradaMP);
+                    break;
+
+                case "Entrada Produtos":
+                    Con_EntradaProdutos _EntradaProdutos = new Con_EntradaProdutos();
+                    pnlExibir.Controls.Clear();
+                    _EntradaProdutos.Dock = DockStyle.Fill;
+                    pnlExibir.Controls.Add(_EntradaProdutos);
                     break;
 
                 default:
@@ -207,7 +242,7 @@ namespace ModuloControleEstoque.View.Int_Principal
                     pnlExibir.Visible = true;
                     pnlExibir.Dock = DockStyle.Fill;
                     MostrarFormulario(formularioParaExibir);
-                    btnBotaoUm.Enabled = false; btnBotaoDois.Enabled = true; btnBotaoTres.Enabled = true; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
+                    //btnBotaoUm.Enabled = false; btnBotaoDois.Enabled = true; btnBotaoTres.Enabled = true; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
 
                 }
             }
@@ -216,7 +251,7 @@ namespace ModuloControleEstoque.View.Int_Principal
                 pnlExibir.Visible = true;
                 pnlExibir.Dock = DockStyle.Fill;
                 MostrarFormulario(formularioParaExibir);
-                btnBotaoUm.Enabled = false; btnBotaoDois.Enabled = true; btnBotaoTres.Enabled = true; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
+                //btnBotaoUm.Enabled = false; btnBotaoDois.Enabled = true; btnBotaoTres.Enabled = true; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
 
             }
         }
@@ -234,7 +269,7 @@ namespace ModuloControleEstoque.View.Int_Principal
                     pnlExibir.Visible = true;
                     pnlExibir.Dock = DockStyle.Fill;
                     MostrarFormulario(formularioParaExibir);
-                    btnBotaoUm.Enabled = true; btnBotaoDois.Enabled = false; btnBotaoTres.Enabled = true; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
+                    //btnBotaoUm.Enabled = true; btnBotaoDois.Enabled = false; btnBotaoTres.Enabled = true; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
 
                 }
             }
@@ -243,7 +278,7 @@ namespace ModuloControleEstoque.View.Int_Principal
                 pnlExibir.Visible = true;
                 pnlExibir.Dock = DockStyle.Fill;
                 MostrarFormulario(formularioParaExibir);
-                btnBotaoUm.Enabled = true; btnBotaoDois.Enabled = false; btnBotaoTres.Enabled = true; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
+                //btnBotaoUm.Enabled = true; btnBotaoDois.Enabled = false; btnBotaoTres.Enabled = true; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
 
             }
         }
@@ -261,7 +296,7 @@ namespace ModuloControleEstoque.View.Int_Principal
                     pnlExibir.Visible = true;
                     pnlExibir.Dock = DockStyle.Fill;
                     MostrarFormulario(formularioParaExibir);
-                    btnBotaoUm.Enabled = true; btnBotaoDois.Enabled = true; btnBotaoTres.Enabled = false; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
+                    //btnBotaoUm.Enabled = true; btnBotaoDois.Enabled = true; btnBotaoTres.Enabled = false; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
 
                 }
             }
@@ -270,7 +305,61 @@ namespace ModuloControleEstoque.View.Int_Principal
                 pnlExibir.Visible = true;
                 pnlExibir.Dock = DockStyle.Fill;
                 MostrarFormulario(formularioParaExibir);
-                btnBotaoUm.Enabled = true; btnBotaoDois.Enabled = true; btnBotaoTres.Enabled = false; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
+                //btnBotaoUm.Enabled = true; btnBotaoDois.Enabled = true; btnBotaoTres.Enabled = false; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
+
+            }
+        }
+
+        private void btnBotaoQuatro_Click(object sender, EventArgs e)
+        {
+            string formularioParaExibir = btnBotaoQuatro.Text;
+            if (pnlExibir.Visible && pnlExibir.Controls.Count > 0)
+            {
+                DialogResult alterarFuncao = MessageBox.Show("Sair agora irá encerrar qualquer processo que não tenha sido concluído.\nDeseja Continuar?", "ATENÇÃO",
+                                                               MessageBoxButtons.YesNo,
+                                                               MessageBoxIcon.Question);
+                if (alterarFuncao == DialogResult.Yes)
+                {
+                    pnlExibir.Visible = true;
+                    pnlExibir.Dock = DockStyle.Fill;
+                    MostrarFormulario(formularioParaExibir);
+                    //btnBotaoUm.Enabled = true; btnBotaoDois.Enabled = true; btnBotaoTres.Enabled = false; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
+
+                }
+            }
+            else
+            {
+                pnlExibir.Visible = true;
+                pnlExibir.Dock = DockStyle.Fill;
+                MostrarFormulario(formularioParaExibir);
+                //btnBotaoUm.Enabled = true; btnBotaoDois.Enabled = true; btnBotaoTres.Enabled = false; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
+
+            }
+        }
+
+        private void btnBotaoCinco_Click(object sender, EventArgs e)
+        {
+            string formularioParaExibir = btnBotaoCinco.Text;
+            if (pnlExibir.Visible && pnlExibir.Controls.Count > 0)
+            {
+                DialogResult alterarFuncao = MessageBox.Show("Sair agora irá encerrar qualquer processo que não tenha sido concluído.\nDeseja Continuar?", "ATENÇÃO",
+                                                               MessageBoxButtons.YesNo,
+                                                               MessageBoxIcon.Question);
+                if (alterarFuncao == DialogResult.Yes)
+                {
+                    pnlExibir.Visible = true;
+                    pnlExibir.Dock = DockStyle.Fill;
+                    MostrarFormulario(formularioParaExibir);
+                    //btnBotaoUm.Enabled = true; btnBotaoDois.Enabled = true; btnBotaoTres.Enabled = false; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
+
+                }
+            }
+            else
+            {
+                pnlExibir.Visible = true;
+                pnlExibir.Dock = DockStyle.Fill;
+                MostrarFormulario(formularioParaExibir);
+                //btnBotaoUm.Enabled = true; btnBotaoDois.Enabled = true; btnBotaoTres.Enabled = false; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
 
             }
         }
