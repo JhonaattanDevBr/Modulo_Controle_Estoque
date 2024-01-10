@@ -224,6 +224,13 @@ namespace ModuloControleEstoque.View.Int_Principal
                     pnlExibir.Controls.Add(_EntradaProdutos);
                     break;
 
+                case "Saída Produtos":
+                    Con_SaidaProdutos _SaidaProdutos = new Con_SaidaProdutos();
+                    pnlExibir.Controls.Clear();
+                    _SaidaProdutos.Dock = DockStyle.Fill;
+                    pnlExibir.Controls.Add(_SaidaProdutos);
+                    break;
+
                 default:
                     break;
             }
@@ -340,6 +347,33 @@ namespace ModuloControleEstoque.View.Int_Principal
         private void btnBotaoCinco_Click(object sender, EventArgs e)
         {
             string formularioParaExibir = btnBotaoCinco.Text;
+            if (pnlExibir.Visible && pnlExibir.Controls.Count > 0)
+            {
+                DialogResult alterarFuncao = MessageBox.Show("Sair agora irá encerrar qualquer processo que não tenha sido concluído.\nDeseja Continuar?", "ATENÇÃO",
+                                                               MessageBoxButtons.YesNo,
+                                                               MessageBoxIcon.Question);
+                if (alterarFuncao == DialogResult.Yes)
+                {
+                    pnlExibir.Visible = true;
+                    pnlExibir.Dock = DockStyle.Fill;
+                    MostrarFormulario(formularioParaExibir);
+                    //btnBotaoUm.Enabled = true; btnBotaoDois.Enabled = true; btnBotaoTres.Enabled = false; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
+
+                }
+            }
+            else
+            {
+                pnlExibir.Visible = true;
+                pnlExibir.Dock = DockStyle.Fill;
+                MostrarFormulario(formularioParaExibir);
+                //btnBotaoUm.Enabled = true; btnBotaoDois.Enabled = true; btnBotaoTres.Enabled = false; btnBotaoQuatro.Enabled = true; btnBotaoCinco.Enabled = true; btnSair.Enabled = true;
+
+            }
+        }
+
+        private void btnBotaoSeis_Click(object sender, EventArgs e)
+        {
+            string formularioParaExibir = btnBotaoSeis.Text;
             if (pnlExibir.Visible && pnlExibir.Controls.Count > 0)
             {
                 DialogResult alterarFuncao = MessageBox.Show("Sair agora irá encerrar qualquer processo que não tenha sido concluído.\nDeseja Continuar?", "ATENÇÃO",

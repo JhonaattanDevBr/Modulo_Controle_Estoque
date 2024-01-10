@@ -108,6 +108,12 @@
     <Compile Include="UserC_Cadastros\Con_Produtos.Designer.cs">
       <DependentUpon>Con_Produtos.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserC_Cadastros\Con_SaidaProdutos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserC_Cadastros\Con_SaidaProdutos.Designer.cs">
+      <DependentUpon>Con_SaidaProdutos.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Int_Login\Fm_Login.resx">
       <DependentUpon>Fm_Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserC_Cadastros\Con_Produtos.resx">
       <DependentUpon>Con_Produtos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserC_Cadastros\Con_SaidaProdutos.resx">
+      <DependentUpon>Con_SaidaProdutos.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

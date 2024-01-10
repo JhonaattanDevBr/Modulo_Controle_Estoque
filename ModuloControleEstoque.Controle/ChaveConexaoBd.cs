@@ -8,7 +8,7 @@ namespace ModuloControleEstoque.Controle
 {
     public class ChaveConexaoBd
     {
-        public string ConexaoBd = @"Data Source=JHONATAN\SQLEXPRESS;Initial Catalog=Bd_Carpintaria;Integrated Security=True";
+        public string ConexaoBd = @"Data Source=DESKTOP-AF6EDUF\SQLEXPRESSS;Initial Catalog=Bd_Carpintaria;Integrated Security=True";
     }
 }
 

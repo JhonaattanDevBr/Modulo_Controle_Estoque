@@ -239,6 +239,7 @@
             this.btnBotaoSeis.Text = "Botão 6";
             this.btnBotaoSeis.UseVisualStyleBackColor = false;
             this.btnBotaoSeis.Visible = false;
+            this.btnBotaoSeis.Click += new System.EventHandler(this.btnBotaoSeis_Click);
             this.btnBotaoSeis.MouseEnter += new System.EventHandler(this.btnBotaoSeis_MouseEnter);
             this.btnBotaoSeis.MouseLeave += new System.EventHandler(this.btnBotaoSeis_MouseLeave);
             // 
