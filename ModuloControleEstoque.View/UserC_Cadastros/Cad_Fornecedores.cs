@@ -110,14 +110,14 @@ namespace ModuloControleEstoque.View.UserC_Cadastros
             _Fornecedor.Regiao = cmbRegiao.SelectedText;
             _Fornecedor.Bairro = txtBairro.Text;
 
-            bool retornoAutenFormatoCnpj = _Fornecedor.AutenticarFormatoCnpj();
-            if (retornoAutenFormatoCnpj)
+            bool retornoAutenDigitosCnpj = _Fornecedor.AutenticarTodosDigitosCnpj();
+            if (retornoAutenDigitosCnpj)
             {
-                MessageBox.Show("A autenticação funcionou.");
+                MessageBox.Show("A autenticação funcionou. Foram digitados todos os 14 digitos do CNPJ.");
             }
             else
             {
-                MessageBox.Show("A autenticação não funcionou.");
+                MessageBox.Show("A autenticação não funcionou. Não foram digitados todos os 14 digitos do CNPJ.");
             }
         }
     }

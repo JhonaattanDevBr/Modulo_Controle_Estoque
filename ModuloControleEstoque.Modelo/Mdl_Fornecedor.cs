@@ -52,6 +52,21 @@ namespace ModuloControleEstoque.Modelo
             
         }
 
+        public bool AutenticarTodosDigitosCnpj() // Já esta funcionando.
+        {
+            string cnpj = Cnpj;
+
+            cnpj = cnpj.Replace(".", "").Replace("/", "").Replace("-", "");
+            if(cnpj.Length == 14)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private bool AutenticarTelefone()
         {
             string numTelefone = Telefone;
