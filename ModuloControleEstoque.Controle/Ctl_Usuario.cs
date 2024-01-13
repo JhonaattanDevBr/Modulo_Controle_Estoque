@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ModuloControleEstoque.Modelo;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Data;
@@ -12,71 +11,62 @@ namespace ModuloControleEstoque.Controle
 {
     public class Ctl_Usuario
     {
-        ChaveConexaoBd _chaveConexao = new ChaveConexaoBd();
+        public string CodUsuario { get; set; }
+        public string Nome { get; set; }
+        public string Usuario { get; set; }
+        public string Senha { get; set; }
 
-        public bool ConsultarUsuario(Mdl_Usuario _mdlUsuario)
+        public bool RealizarLogin()
         {
-			try
-			{
-                SqlConnection conexao = new SqlConnection(_chaveConexao.ConexaoBd);
-                conexao.Open();
-                string q = "SELECT * FROM Usuarios";
-                SqlCommand cmd = new SqlCommand(q, conexao);
-                SqlDataReader _leitor = cmd.ExecuteReader();
+            bool retorno = false, autUsuario, autSenha;
 
-                string usuario = null, senha = null;
-                while (_leitor.Read())
-                {                 
-                    if (_leitor.GetString(2) == _mdlUsuario.Usuario && _leitor.GetString(3) == _mdlUsuario.Senha)
-                    {
-                        usuario = _leitor.GetString(2);
-                        senha = _leitor.GetString(3);
-                        break;
-                    }
-                    
-                }
-                if(!string.IsNullOrEmpty(usuario) && !string.IsNullOrEmpty(senha)) 
+            autUsuario = AutenticarUsuario();
+            if (autUsuario)
+            {
+                autSenha = AutenticarSenha();
+                if (autSenha)
                 {
-                    return true;
+                    retorno = true;
+                    return retorno;
                 }
                 else
                 {
                     return false;
                 }
             }
-			catch (Exception)
-			{
-
-				throw;
-			}
+            else
+            {
+                return false;
+            }
         }
 
-        public string NomeUsuario(Mdl_Usuario _mdlUsuario)
+        public bool AutenticarUsuario()
         {
-            try
+            string nomeUsuario = Usuario;
+            if (nomeUsuario == nomeUsuario.ToUpper())
             {
-                SqlConnection conexao = new SqlConnection(_chaveConexao.ConexaoBd);
-                conexao.Open();
-                string q = "SELECT * FROM Usuarios";
-                SqlCommand cmd = new SqlCommand(q, conexao);
-                SqlDataReader _leitor = cmd.ExecuteReader();
-
-                string nome = null;
-                while (_leitor.Read())
-                {
-                    if (_leitor.GetString(2) == _mdlUsuario.Usuario && _leitor.GetString(3) == _mdlUsuario.Senha)
-                    {
-                        nome = _leitor.GetString(1);
-                        break;
-                    }
-                }
-                return nome;
+                return true;
             }
-            catch (Exception)
+            else
             {
+                return false;
+            }
 
-                throw;
+        }
+
+        public bool AutenticarSenha()
+        {
+            string senhaUsuario = Senha;
+            if (!(senhaUsuario.Length != 8))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
+
+        
     }
 }

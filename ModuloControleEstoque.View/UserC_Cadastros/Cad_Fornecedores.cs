@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ModuloControleEstoque.Controle;
 using ModuloControleEstoque.Modelo;
 
 namespace ModuloControleEstoque.View.UserC_Cadastros
@@ -18,7 +19,7 @@ namespace ModuloControleEstoque.View.UserC_Cadastros
             InitializeComponent();
         }
 
-        Mdl_Fornecedor _Fornecedor = new Mdl_Fornecedor();
+        Ctl_Fornecedor _Fornecedor = new Ctl_Fornecedor();
 
         private void txtRazaoSocial_Enter(object sender, EventArgs e)
         {
@@ -110,14 +111,14 @@ namespace ModuloControleEstoque.View.UserC_Cadastros
             _Fornecedor.Regiao = cmbRegiao.SelectedText;
             _Fornecedor.Bairro = txtBairro.Text;
 
-            bool retornoAutenDigitosCnpj = _Fornecedor.AutenticarTodosDigitosCnpj();
-            if (retornoAutenDigitosCnpj)
+            bool retornoAutenDigitosTelefone = _Fornecedor.AutenticarTelefone();
+            if (retornoAutenDigitosTelefone)
             {
-                MessageBox.Show("A autenticação funcionou. Foram digitados todos os 14 digitos do CNPJ.");
+                MessageBox.Show("A autenticação funcionou. Foram digitados todos os 10 digitos do telefone.");
             }
             else
             {
-                MessageBox.Show("A autenticação não funcionou. Não foram digitados todos os 14 digitos do CNPJ.");
+                MessageBox.Show("ERRO!! A autenticação não funcionou. Não foram digitados todos os 10 digitos do telefone.");
             }
         }
     }

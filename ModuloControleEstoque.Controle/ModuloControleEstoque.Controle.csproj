@@ -41,15 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChaveConexaoBd.cs" />
+    <Compile Include="Ctl_Fornecedor.cs" />
     <Compile Include="Ctl_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ModuloControleEstoque.Modelo\ModuloControleEstoque.Modelo.csproj">
-      <Project>{4b008112-6466-4e31-9ff9-cc44caff9cc8}</Project>
-      <Name>ModuloControleEstoque.Modelo</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

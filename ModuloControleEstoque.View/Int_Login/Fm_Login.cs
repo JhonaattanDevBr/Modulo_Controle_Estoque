@@ -17,8 +17,8 @@ namespace ModuloControleEstoque.View
 {
     public partial class Fm_Login : Form
     {
-        Mdl_Usuario _mdlUsuario = new Mdl_Usuario();
-        Ctl_Usuario _ctlUsuario = new Ctl_Usuario();
+        Mdl_Usuario _MdlUsuario = new Mdl_Usuario();
+        Ctl_Usuario _CtlUsuario = new Ctl_Usuario();
 
         Thread _tdAreaRestrita;
 
@@ -83,12 +83,12 @@ namespace ModuloControleEstoque.View
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            _mdlUsuario.Usuario = txtUsuario.Text;
-            _mdlUsuario.Senha = txtSenha.Text;
-            bool retornoAutLogin = _mdlUsuario.RealizarLogin();
+            _CtlUsuario.Usuario = txtUsuario.Text;
+            _CtlUsuario.Senha = txtSenha.Text;
+            bool retornoAutLogin = _CtlUsuario.RealizarLogin();
             if (retornoAutLogin)
             {
-                bool retornoLogin = _ctlUsuario.ConsultarUsuario(_mdlUsuario);
+                bool retornoLogin = _MdlUsuario.ConsultarUsuario(_CtlUsuario);
                 if (retornoLogin)
                 {
                     this.Close();
@@ -119,7 +119,7 @@ namespace ModuloControleEstoque.View
 
         private void AcessarAreaRestrita()
         {
-            string nome = _ctlUsuario.NomeUsuario(_mdlUsuario);
+            string nome = _MdlUsuario.NomeUsuario(_CtlUsuario);
             Application.Run(new Fm_AreaRestrita(nome));
         }
     }
