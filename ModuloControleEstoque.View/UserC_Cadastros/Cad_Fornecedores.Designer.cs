@@ -180,6 +180,7 @@
             // 
             // txtBairro
             // 
+            this.txtBairro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtBairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtBairro.Location = new System.Drawing.Point(6, 403);
             this.txtBairro.MaxLength = 80;
@@ -191,6 +192,7 @@
             // 
             // txtCidade
             // 
+            this.txtCidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtCidade.Location = new System.Drawing.Point(6, 287);
             this.txtCidade.Name = "txtCidade";
@@ -203,7 +205,7 @@
             // 
             this.mskTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.mskTelefone.Location = new System.Drawing.Point(6, 227);
-            this.mskTelefone.Mask = "(00) - 0000-0000";
+            this.mskTelefone.Mask = "(00)-0000-0000";
             this.mskTelefone.Name = "mskTelefone";
             this.mskTelefone.Size = new System.Drawing.Size(260, 23);
             this.mskTelefone.TabIndex = 10;
@@ -212,6 +214,7 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtEmail.Location = new System.Drawing.Point(6, 167);
             this.txtEmail.MaxLength = 100;
@@ -235,6 +238,7 @@
             // 
             // txtRazaoSocial
             // 
+            this.txtRazaoSocial.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtRazaoSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtRazaoSocial.Location = new System.Drawing.Point(6, 54);
             this.txtRazaoSocial.MaxLength = 80;
