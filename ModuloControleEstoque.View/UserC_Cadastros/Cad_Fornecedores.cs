@@ -22,86 +22,7 @@ namespace ModuloControleEstoque.View.UserC_Cadastros
         Ctl_Fornecedor _ControleFornecedor = new Ctl_Fornecedor();
         Mdl_Fornecedor _ModeloFornecedor = new Mdl_Fornecedor();
 
-        private void txtRazaoSocial_Enter(object sender, EventArgs e)
-        {
-            txtRazaoSocial.BackColor = SystemColors.GradientActiveCaption;
-        }
-
-        private void txtRazaoSocial_Leave(object sender, EventArgs e)
-        {
-            txtRazaoSocial.BackColor = SystemColors.Window;
-        }
-
-        private void mskCnpj_Enter(object sender, EventArgs e)
-        {
-            mskCnpj.BackColor = SystemColors.GradientActiveCaption;
-        }
-
-        private void mskCnpj_Leave(object sender, EventArgs e)
-        {
-            mskCnpj.BackColor = SystemColors.Window;
-        }
-
-        private void txtEmail_Enter(object sender, EventArgs e)
-        {
-            txtEmail.BackColor = SystemColors.GradientActiveCaption;
-        }
-
-        private void txtEmail_Leave(object sender, EventArgs e)
-        {
-            txtEmail.BackColor = SystemColors.Window;
-        }
-
-        private void mskTelefone_Enter(object sender, EventArgs e)
-        {
-            mskTelefone.BackColor = SystemColors.GradientActiveCaption;
-        }
-
-        private void mskTelefone_Leave(object sender, EventArgs e)
-        {
-            mskTelefone.BackColor = SystemColors.Window;
-        }
-
-        private void txtCidade_Enter(object sender, EventArgs e)
-        {
-            txtCidade.BackColor = SystemColors.GradientActiveCaption;
-        }
-
-        private void txtCidade_Leave(object sender, EventArgs e)
-        {
-            txtCidade.BackColor = SystemColors.Window;
-        }
-
-        private void cmbRegiao_Enter(object sender, EventArgs e)
-        {
-            cmbRegiao.BackColor = SystemColors.GradientActiveCaption;
-        }
-
-        private void cmbRegiao_Leave(object sender, EventArgs e)
-        {
-            cmbRegiao.BackColor = SystemColors.Window;
-        }
-
-        private void txtBairro_Enter(object sender, EventArgs e)
-        {
-            txtBairro.BackColor = SystemColors.GradientActiveCaption;
-        }
-
-        private void txtBairro_Leave(object sender, EventArgs e)
-        {
-            txtBairro.BackColor = SystemColors.Window;
-        }
-
-        private void btnCadastrar_MouseEnter(object sender, EventArgs e)
-        {
-            btnCadastrarFornecedor.BackColor = SystemColors.GradientActiveCaption;
-        }
-
-        private void btnCadastrar_MouseLeave(object sender, EventArgs e)
-        {
-            btnCadastrarFornecedor.BackColor = SystemColors.Window;
-        }
-
+        // Lógica do botão cadastrar: Começo ↓.
         private void btnCadastrarFornecedor_Click(object sender, EventArgs e)
         {
             _ControleFornecedor.NomeFornecedor = txtRazaoSocial.Text;
@@ -119,7 +40,7 @@ namespace ModuloControleEstoque.View.UserC_Cadastros
                !string.IsNullOrEmpty(cmbRegiao.Text) &&
                !string.IsNullOrEmpty(txtBairro.Text))
             {
-                List<bool> retornoIsValid = new List<bool>();// VOu precisar rever esse código. Esta com Erro nesta parte
+                List<bool> retornoIsValid = new List<bool>();
                 retornoIsValid = _ControleFornecedor.AutenticarDadosParaCadastro();
 
                 if (retornoIsValid[0] &&
@@ -161,6 +82,8 @@ namespace ModuloControleEstoque.View.UserC_Cadastros
             }
         }
 
+        // Lógica do botão cadastrar: Fim ↑.
+
         private void LimparCaixas()
         {
             txtRazaoSocial.Clear();
@@ -171,5 +94,96 @@ namespace ModuloControleEstoque.View.UserC_Cadastros
             cmbRegiao.SelectedIndex = 0;
             txtBairro.Clear();
         }
+
+        // Código para alterar as cores dos botões: Começo ↓.
+
+        private void txtRazaoSocial_Enter(object sender, EventArgs e)
+        {
+            txtRazaoSocial.BackColor = SystemColors.GradientActiveCaption;
+            txtRazaoSocial.SelectionStart = 0;
+        }
+
+        private void txtRazaoSocial_Leave(object sender, EventArgs e)
+        {
+            txtRazaoSocial.BackColor = SystemColors.Window;
+        }
+
+        private void mskCnpj_Enter(object sender, EventArgs e)
+        {
+            mskCnpj.BackColor = SystemColors.GradientActiveCaption;
+            mskCnpj.SelectionStart = 0;
+        }
+
+        private void mskCnpj_Leave(object sender, EventArgs e)
+        {
+            mskCnpj.BackColor = SystemColors.Window;
+        }
+
+        private void txtEmail_Enter(object sender, EventArgs e)
+        {
+            txtEmail.BackColor = SystemColors.GradientActiveCaption;
+            txtEmail.SelectionStart = 0;
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            txtEmail.BackColor = SystemColors.Window;
+        }
+
+        private void mskTelefone_Enter(object sender, EventArgs e)
+        {
+            mskTelefone.BackColor = SystemColors.GradientActiveCaption;
+            mskTelefone.SelectionStart = 0;
+        }
+
+        private void mskTelefone_Leave(object sender, EventArgs e)
+        {
+            mskTelefone.BackColor = SystemColors.Window;
+        }
+
+        private void txtCidade_Enter(object sender, EventArgs e)
+        {
+            txtCidade.BackColor = SystemColors.GradientActiveCaption;
+            txtCidade.SelectionStart = 0;
+        }
+
+        private void txtCidade_Leave(object sender, EventArgs e)
+        {
+            txtCidade.BackColor = SystemColors.Window;
+        }
+
+        private void cmbRegiao_Enter(object sender, EventArgs e)
+        {
+            cmbRegiao.BackColor = SystemColors.GradientActiveCaption;
+            cmbRegiao.SelectionStart = 0;
+        }
+
+        private void cmbRegiao_Leave(object sender, EventArgs e)
+        {
+            cmbRegiao.BackColor = SystemColors.Window;
+        }
+
+        private void txtBairro_Enter(object sender, EventArgs e)
+        {
+            txtBairro.BackColor = SystemColors.GradientActiveCaption;
+            txtBairro.SelectionStart = 0;
+        }
+
+        private void txtBairro_Leave(object sender, EventArgs e)
+        {
+            txtBairro.BackColor = SystemColors.Window;
+        }
+
+        private void btnCadastrar_MouseEnter(object sender, EventArgs e)
+        {
+            btnCadastrarFornecedor.BackColor = SystemColors.GradientActiveCaption;
+        }
+
+        private void btnCadastrar_MouseLeave(object sender, EventArgs e)
+        {
+            btnCadastrarFornecedor.BackColor = SystemColors.Window;
+        }
+
+        // Código para alterar as cores dos botões: Fim ↑.
     }
 }
