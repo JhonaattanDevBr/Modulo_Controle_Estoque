@@ -25,53 +25,51 @@ namespace ModuloControleEstoque.View.UserC_Cadastros
         // Lógica do botão cadastrar: Começo ↓.
         private void btnCadastrarFornecedor_Click(object sender, EventArgs e)
         {
-            _ControleFornecedor.NomeFornecedor = txtRazaoSocial.Text;
-            _ControleFornecedor.Cnpj = mskCnpj.Text;
-            _ControleFornecedor.Email = txtEmail.Text;
-            _ControleFornecedor.Telefone = mskTelefone.Text;
-            _ControleFornecedor.Cidade = txtCidade.Text;
-            _ControleFornecedor.Regiao = cmbRegiao.Text;
-            _ControleFornecedor.Bairro = txtBairro.Text;
+            _ControleFornecedor.NomeFornecedor = TxtNomeFornecedor.Text;
+            _ControleFornecedor.Cnpj = TxtCnpj.Text;
+            _ControleFornecedor.Email = TxtEmail.Text; // <- Ele não esta recebendo o vali
+            _ControleFornecedor.Telefone = TxtTelefone.Text;
+            _ControleFornecedor.Cidade = TxtCidade.Text;
+            _ControleFornecedor.Bairro = TxtBairro.Text;
+            _ControleFornecedor.Rua = TxtRua.Text;
+            _ControleFornecedor.Numero = TxtNumero.Text;
 
-            if(!string.IsNullOrEmpty(txtRazaoSocial.Text) &&
-               !string.IsNullOrEmpty(mskCnpj.Text) &&
-               !string.IsNullOrEmpty(mskTelefone.Text) &&
-               !string.IsNullOrEmpty(txtCidade.Text) &&
-               !string.IsNullOrEmpty(cmbRegiao.Text) &&
-               !string.IsNullOrEmpty(txtBairro.Text))
+            if(!string.IsNullOrEmpty(TxtNomeFornecedor.Text) &&
+               !string.IsNullOrEmpty(TxtCnpj.Text) &&
+               !string.IsNullOrEmpty(TxtTelefone.Text) &&
+               !string.IsNullOrEmpty(TxtCidade.Text) &&
+               !string.IsNullOrEmpty(TxtBairro.Text))
             {
-                List<bool> retornoIsValid = new List<bool>();
-                retornoIsValid = _ControleFornecedor.AutenticarDadosParaCadastro();
+                List<bool> retornoValido = new List<bool>();
+                string[] mensagemErro = new string[4];
+                mensagemErro[0] = "O formato do CPNJ não é válido.";
+                mensagemErro[1] = "Ensira todos os dígitos do CNPJ.";
+                mensagemErro[2] = "O formato do e-mail não é válido.";
+                mensagemErro[3] = "Ensira todos os dígitos do telefone.";
 
-                if (retornoIsValid[0] &&
-                    retornoIsValid[1] &&
-                    retornoIsValid[2] &&
-                    retornoIsValid[3])
+                retornoValido = _ControleFornecedor.AutenticarDadosParaCadastro();
+
+                for (int i = 0; i < retornoValido.Count; i++)
                 {
-                    bool retornoCadastro = _ModeloFornecedor.CadastrarFornecedor(_ControleFornecedor);
-                    if (retornoCadastro)
+                    if (!retornoValido[i])
                     {
-                        MessageBox.Show("Fornecedor cadastrado com sucesso.", "!Operação concluida com sucesso.");
-                        LimparCaixas();
+                        MessageBox.Show(mensagemErro[i], "Atenção!");
+                        break;
                     }
                     else
                     {
-                        MessageBox.Show("Fornecedor não cadastrado.", "!Falha na operação.");
-                    }
-                }
-                else
-                {
-                    string[] mensagemErro = new string[4];
-                    mensagemErro[0] = "O formato do CPNJ não é válido.";
-                    mensagemErro[1] = "Ensira todos os dígitos do CNPJ.";
-                    mensagemErro[2] = "O formato do e-mail não é válido.";
-                    mensagemErro[3] = "Ensira todos os dígitos do telefone.";
-                    for (int i = 0; i < retornoIsValid.Count; i++)
-                    {
-                        if (!retornoIsValid[i])
+                        if (retornoValido[3])
                         {
-                            MessageBox.Show(mensagemErro[i], "Atenção!");
-                            break;
+                            bool retornoCadastro = _ModeloFornecedor.CadastrarFornecedor(_ControleFornecedor);
+                            if (retornoCadastro)
+                            {
+                                MessageBox.Show("Fornecedor cadastrado com sucesso.", "!Operação concluida com sucesso.");
+                                LimparCaixas();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Fornecedor não cadastrado.", "!Falha na operação.");
+                            }
                         }
                     }
                 }
@@ -86,92 +84,102 @@ namespace ModuloControleEstoque.View.UserC_Cadastros
 
         private void LimparCaixas()
         {
-            txtRazaoSocial.Clear();
-            mskCnpj.Clear();
-            txtEmail.Clear();
-            mskTelefone.Clear();
-            txtCidade.Clear();
-            cmbRegiao.SelectedIndex = 0;
-            txtBairro.Clear();
+            TxtNomeFornecedor.Clear();
+            TxtCnpj.Clear();
+            TxtEmail.Clear();
+            TxtTelefone.Clear();
+            TxtCidade.Clear();
+            TxtBairro.Clear();
         }
 
         // Código para alterar as cores dos botões: Começo ↓.
 
-        private void txtRazaoSocial_Enter(object sender, EventArgs e)
+        private void TxtNomeFornecedor_Enter(object sender, EventArgs e)
         {
-            txtRazaoSocial.BackColor = SystemColors.GradientActiveCaption;
-            txtRazaoSocial.SelectionStart = 0;
+            TxtNomeFornecedor.BackColor = SystemColors.GradientActiveCaption;
+            TxtNomeFornecedor.SelectionStart = 0;
         }
 
-        private void txtRazaoSocial_Leave(object sender, EventArgs e)
+        private void TxtNomeFornecedor_Leave(object sender, EventArgs e)
         {
-            txtRazaoSocial.BackColor = SystemColors.Window;
+            TxtNomeFornecedor.BackColor = SystemColors.Window;
         }
 
-        private void mskCnpj_Enter(object sender, EventArgs e)
+        private void TxtCnpj_Enter(object sender, EventArgs e)
         {
-            mskCnpj.BackColor = SystemColors.GradientActiveCaption;
-            mskCnpj.SelectionStart = 0;
+            TxtCnpj.BackColor = SystemColors.GradientActiveCaption;
+            TxtCnpj.SelectionStart = 0;
         }
 
-        private void mskCnpj_Leave(object sender, EventArgs e)
+        private void TxtCnpj_Leave(object sender, EventArgs e)
         {
-            mskCnpj.BackColor = SystemColors.Window;
+            TxtCnpj.BackColor = SystemColors.Window;
         }
 
-        private void txtEmail_Enter(object sender, EventArgs e)
+        private void TxtEmail_Enter(object sender, EventArgs e)
         {
-            txtEmail.BackColor = SystemColors.GradientActiveCaption;
-            txtEmail.SelectionStart = 0;
+            TxtEmail.BackColor = SystemColors.GradientActiveCaption;
+            TxtEmail.SelectionStart = 0;
         }
 
-        private void txtEmail_Leave(object sender, EventArgs e)
+        private void TxtEmail_Leave(object sender, EventArgs e)
         {
-            txtEmail.BackColor = SystemColors.Window;
+            TxtEmail.BackColor = SystemColors.Window;
         }
 
-        private void mskTelefone_Enter(object sender, EventArgs e)
+        private void TxtTelefone_Enter(object sender, EventArgs e)
         {
-            mskTelefone.BackColor = SystemColors.GradientActiveCaption;
-            mskTelefone.SelectionStart = 0;
+            TxtTelefone.BackColor = SystemColors.GradientActiveCaption;
+            TxtTelefone.SelectionStart = 0;
         }
 
-        private void mskTelefone_Leave(object sender, EventArgs e)
+        private void TxtTelefone_Leave(object sender, EventArgs e)
         {
-            mskTelefone.BackColor = SystemColors.Window;
+            TxtTelefone.BackColor = SystemColors.Window;
         }
 
-        private void txtCidade_Enter(object sender, EventArgs e)
+        private void TxtCidade_Enter(object sender, EventArgs e)
         {
-            txtCidade.BackColor = SystemColors.GradientActiveCaption;
-            txtCidade.SelectionStart = 0;
+            TxtCidade.BackColor = SystemColors.GradientActiveCaption;
+            TxtCidade.SelectionStart = 0;
         }
 
-        private void txtCidade_Leave(object sender, EventArgs e)
+        private void TxtCidade_Leave(object sender, EventArgs e)
         {
-            txtCidade.BackColor = SystemColors.Window;
+            TxtCidade.BackColor = SystemColors.Window;
         }
 
-        private void cmbRegiao_Enter(object sender, EventArgs e)
+        private void TxtBairro_Enter(object sender, EventArgs e)
         {
-            cmbRegiao.BackColor = SystemColors.GradientActiveCaption;
-            cmbRegiao.SelectionStart = 0;
+            TxtBairro.BackColor = SystemColors.GradientActiveCaption;
+            TxtBairro.SelectionStart = 0;
         }
 
-        private void cmbRegiao_Leave(object sender, EventArgs e)
+        private void TxtBairro_Leave(object sender, EventArgs e)
         {
-            cmbRegiao.BackColor = SystemColors.Window;
+            TxtBairro.BackColor = SystemColors.Window;
         }
 
-        private void txtBairro_Enter(object sender, EventArgs e)
+        private void TxtRua_Enter(object sender, EventArgs e)
         {
-            txtBairro.BackColor = SystemColors.GradientActiveCaption;
-            txtBairro.SelectionStart = 0;
+            TxtRua.BackColor = SystemColors.GradientActiveCaption;
+            TxtRua.SelectionStart = 0;
         }
 
-        private void txtBairro_Leave(object sender, EventArgs e)
+        private void TxtRua_Leave(object sender, EventArgs e)
         {
-            txtBairro.BackColor = SystemColors.Window;
+            TxtRua.BackColor = SystemColors.Window;
+        }
+
+        private void TxtNumero_Enter(object sender, EventArgs e)
+        {
+            TxtNumero.BackColor = SystemColors.GradientActiveCaption;
+            TxtNumero.SelectionStart = 0;
+        }
+
+        private void TxtNumero_Leave(object sender, EventArgs e)
+        {
+            TxtNumero.BackColor = SystemColors.Window;
         }
 
         private void btnCadastrar_MouseEnter(object sender, EventArgs e)
