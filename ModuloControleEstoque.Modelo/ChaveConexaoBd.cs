@@ -8,6 +8,6 @@ namespace ModuloControleEstoque.Modelo
 {
     public class ChaveConexaoBd
     {
-        public string ConexaoBd = @"Data Source=DESKTOP-AF6EDUF\SQLEXPRESSS;Initial Catalog=Bd_Carpintaria;Integrated Security=True";
+        public string ConexaoBd = @"Data Source=DESKTOP-AF6EDUF\SQLEXPRESSS;Initial Catalog=Madeireira;Integrated Security=True;Encrypt=False";
     }
 }

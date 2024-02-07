@@ -21,15 +21,15 @@ namespace ModuloControleEstoque.Modelo
                 SqlConnection connection = new SqlConnection(conexaoBd);
 
                 connection.Open();
-                string query = "INSERT INTO Fornecedores (Razao_Sc, Cnpj, Email, Telefone, Cidade, Regiao, Bairro) " +
-                               "VALUES (@razaoSocial, @cnpj, @email, @telefone, @cidade, @regiao, @bairro)";
+                string query = "INSERT INTO Fornecedores (Nome_Forne, Cnpj, Email, Telefone, Cidade, Bairro, Rua, Numero) " +
+                               "VALUES (@nomeForne, @cnpj, @email, @telefone, @cidade, @bairro, @rua, @numero)";
                 SqlCommand command = new SqlCommand(query, connection);
 
-                var pmtRazaoSocial =  command.CreateParameter();
-                pmtRazaoSocial.ParameterName = "@razaoSocial";
-                pmtRazaoSocial.DbType = DbType.String;
-                pmtRazaoSocial.Value = _Fornecedor.NomeFornecedor;
-                command.Parameters.Add(pmtRazaoSocial);
+                var pmtNomeForne =  command.CreateParameter();
+                pmtNomeForne.ParameterName = "@nomeForne";
+                pmtNomeForne.DbType = DbType.String;
+                pmtNomeForne.Value = _Fornecedor.NomeFornecedor;
+                command.Parameters.Add(pmtNomeForne);
 
                 var pmtCnpj = command.CreateParameter();
                 pmtCnpj.ParameterName = "@cnpj";
@@ -55,17 +55,23 @@ namespace ModuloControleEstoque.Modelo
                 pmtCidade.Value = _Fornecedor.Cidade;
                 command.Parameters.Add(pmtCidade);
 
-                var pmtRegiao = command.CreateParameter();
-                pmtRegiao.ParameterName = "@regiao";
-                pmtRegiao.DbType = DbType.String;
-                pmtRegiao.Value = _Fornecedor.Regiao;
-                command.Parameters.Add(pmtRegiao);
-
                 var pmtBairro = command.CreateParameter();
                 pmtBairro.ParameterName = "@bairro";
                 pmtBairro.DbType = DbType.String;
                 pmtBairro.Value = _Fornecedor.Bairro;
                 command.Parameters.Add(pmtBairro);
+
+                var pmtRua = command.CreateParameter();
+                pmtRua.ParameterName = "@rua";
+                pmtRua.DbType = DbType.String;
+                pmtRua.Value = _Fornecedor.Rua;
+                command.Parameters.Add(pmtRua);
+
+                var pmtNumero = command.CreateParameter();
+                pmtNumero.ParameterName = "@numero";
+                pmtNumero.DbType = DbType.Int16;
+                pmtNumero.Value = _Fornecedor.Numero;
+                command.Parameters.Add(pmtNumero);
 
                 if (command.ExecuteNonQuery() > 0)
                 {
