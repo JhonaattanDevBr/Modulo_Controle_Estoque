@@ -3,116 +3,121 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ModuloControleEstoque.Controle
 {
     public class Ctl_MateriaPrima
     {
-        private string _nomeMP;
-        private string _categoriaMp;
-        private string _novaCategoriaMp;
-        private string _valorUnitarioMp;
-        private string _quantiadadeMp;
-        private string _fornecedor;
-        private string _comprimento;
-        private string _largura;
-        private string _altura;
+        private string _idMatP;
+        private string _nomeMatP;
+        private string _materialMatP;
         private string _peso;
-        private string _saldoMP;
+        private string _valorUnitMatP;
+        private string _idFornecedor;
+       
         
-        public string Nome
+        public string NomeMP
         {
-            get { return _nomeMP; }
+            get { return _nomeMatP; }
             set
             {
-                _nomeMP = null;
+                _nomeMatP = null;
                 value = value.Trim();
                 if (value != null && value.Length > 4)
                 {
-                    _nomeMP = value;
+                    _nomeMatP = value;
                 }
             }
         }
 
-        public string NovaCategoria
+        public string MaterialMP
         {
-            get { return _novaCategoriaMp; }
+            get { return _materialMatP; }
             set
             {
-                _novaCategoriaMp = null; // basta tornar o atributo vazio antes de testar no if para resolver o problema.
+                _materialMatP = null; // basta tornar o atributo vazio antes de testar no if para resolver o problema.
                 value = value.Trim();
                 if (value != null && value.Length > 4)
                 {
-                    _novaCategoriaMp = value;
+                    _materialMatP = value;
                 }
 
+            }
+        }
+
+        public string PesoMP
+        {
+            get { return _peso; }
+            set
+            {
+                _peso = null;
+                value = value.Trim();
+                if (value != null && value.Length > 0)
+                {
+                    _peso = value;
+                }
             }
         }
 
         public string ValorUnitarioMp
         {
-            get { return _valorUnitarioMp; }
+            get { return _valorUnitMatP; }
             set
             {
-                _valorUnitarioMp = null;
+                _valorUnitMatP = null;
                 value = value.Trim();
                 if (value != null && value.Length >= 4)
                 {
-                    _valorUnitarioMp = value;
+                    _valorUnitMatP = value;
                 }
             }
         }
 
-        public string QuantidadeMp
+
+        public List<bool> AutenticarDadosParaCadastro()
         {
-            get { return _quantiadadeMp; }
-            set
-            {
-                _quantiadadeMp = null;
-                value = value.Trim();
-                if (value != null && value.Length > 0)
-                {
-                    _quantiadadeMp = value;
-                }
-            }
+            List<bool> autenticado = new List<bool>();
+            //autenticado.Add(AutenticarFormatoPeso());
+            //autenticado.Add(AutenticarFormatovalor());
+
+            return autenticado;
         }
 
         public bool CamposPrenchidos()
         {
-            if(!string.IsNullOrEmpty(_nomeMP) &&
-               !string.IsNullOrEmpty(_novaCategoriaMp) &&
-               !string.IsNullOrEmpty(_valorUnitarioMp) &&
-               !string.IsNullOrEmpty(_quantiadadeMp))
+            bool vazio = false;
+            if(string.IsNullOrEmpty(_nomeMatP) && string.IsNullOrEmpty(_materialMatP) && string.IsNullOrEmpty(_peso) && string.IsNullOrEmpty(_valorUnitMatP))
             {
-                return true;
+                vazio = true;
+                return vazio;
+            }
+            else { return vazio; }
+        }
+
+        private bool AutenticarFormatoPeso()
+        {
+            if (PesoMP != null)
+            {
+                string peso = PesoMP;
+                Regex _Expression = new Regex(@"^([0-9]{2}\.[0-9]{3}\.[0-9]{3}/[0-9]{4}-[0-9]{2})$");
+                bool valido = _Expression.IsMatch(peso);
+                if (valido)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else { return false; }
         }
 
-        public string DscobrirErro()
+        private bool AutenticarFormatovalor()
         {
-            string[] valores = new string[4];
-            valores[0] = _nomeMP;
-            valores[1] = _novaCategoriaMp;
-            valores[2] = _valorUnitarioMp;
-            valores[3] = _quantiadadeMp;
 
-            string[] msgErro = new string[4];
-            msgErro[0] = "O campo nome não pode estar vazio. Mínimo de 4 letras.";
-            msgErro[1] = "O campo nova categoria não pode estar vazio. Mínimo de 4 letras.";
-            msgErro[2] = "O campo valor unitário não pode estar vazio. Informe o valor de acordo com a dica.";
-            msgErro[3] = "O campo quantidade não pode estar vazio.";
-
-            string erro = "O ERRO NÃO ESTA AQUI";
-            for(int i = 0; i < valores.Length; i++)
-            {
-                if (string.IsNullOrEmpty(valores[i]))
-                {
-                    return msgErro[i];
-                }
-            }
-            return erro;
         }
     }
 }

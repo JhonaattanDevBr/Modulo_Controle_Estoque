@@ -65,6 +65,7 @@
             // 
             this.txtUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtUsuario.Location = new System.Drawing.Point(336, 331);
             this.txtUsuario.MaxLength = 20;

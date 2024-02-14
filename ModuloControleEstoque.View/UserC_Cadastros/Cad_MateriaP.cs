@@ -16,12 +16,69 @@ namespace ModuloControleEstoque.View.UserC_Cadastros
         public Cad_MateriaP()
         {
             InitializeComponent();
+            MostrarDica();
         }
 
         Ctl_MateriaPrima _ctlMatPrima = new Ctl_MateriaPrima();
 
-        // Código para alterar as cores dos botões: Começo ↓.
+        // ---------------------------------------Lógica do cadastro: Começo ↓.-----------------------------------
 
+        private void BtnCadastrarMP_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private bool PegarPassarValores()
+        {
+            _ctlMatPrima.NomeMP = TxtNomeMP.Text;
+            _ctlMatPrima.MaterialMP = TxtMaterialMP.Text;
+            _ctlMatPrima.PesoMP = TxtPesoMP.Text;
+            _ctlMatPrima.ValorUnitarioMp = TxtValorUnitarioMP.Text;
+
+            bool camposvazio = _ctlMatPrima.CamposPrenchidos();
+            if (camposvazio)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void PegarErros()
+        {
+            List<bool> retornoValido = new List<bool>();
+            string[] mensagemErro = new string[3];
+            //mensagemErro[0] = "Informe o nome da matéria prima.";
+            //mensagemErro[1] = "Informe o nome do material da matéria prima.";
+            mensagemErro[0] = "O formato do peso não é válido.";
+            mensagemErro[1] = "O formato do valor não é válido.";
+            mensagemErro[2] = "Informe o fornecedor da matéria prima.";
+
+            retornoValido = _ctlMatPrima.AutenticarDadosParaCadastro();
+            for (int i = 0; i < retornoValido.Count; i++)
+            {
+                if (!retornoValido[i])
+                {
+                    MessageBox.Show($"Prencha todos os campos! {mensagemErro[i]}", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                }
+            }
+        }
+
+        private void MostrarDica()
+        {
+            TtpDica.ToolTipTitle = "DICA";
+            TtpDica.IsBalloon = true;
+
+            TtpDica.SetToolTip(TxtPesoMP, "Utilize a vírgula.\nExemplo: XX,X");
+            TtpDica.SetToolTip(TxtValorUnitarioMP, "Utilize a vírgula e o ponto.\nExemplo: X.XXX,XX");
+        }
+
+        //------------------------------------Lógica do cadastro: Fim ↑.----------------------------------------- 
+
+        //------------------------------------Lógica para alterar as cores dos botões: Começo ↓.----------------------------------------- 
         private void TxtNomeMP_Enter(object sender, EventArgs e)
         {
             TxtNomeMP.BackColor = SystemColors.GradientActiveCaption;
@@ -33,54 +90,43 @@ namespace ModuloControleEstoque.View.UserC_Cadastros
             TxtNomeMP.BackColor = SystemColors.Window;
         }
 
-        private void CmbCategoriaMP_Enter(object sender, EventArgs e)
+        private void TxtMaterialMP_Enter(object sender, EventArgs e)
         {
-            CmbCategoriaMP.BackColor = SystemColors.GradientActiveCaption;
-            CmbCategoriaMP.SelectionStart = 0;
+            TxtMaterialMP.BackColor = SystemColors.GradientActiveCaption;
+            TxtMaterialMP.SelectionStart = 0;
         }
 
-        private void CmbCategoriaMP_Leave(object sender, EventArgs e)
+        private void TxtMaterialMP_Leave(object sender, EventArgs e)
         {
-            CmbCategoriaMP.BackColor = SystemColors.Window;
+            TxtMaterialMP.BackColor = SystemColors.Window;
         }
 
-        private void TxtNovaCategoriaMP_Enter(object sender, EventArgs e)
+        private void TxtPesoMP_Enter(object sender, EventArgs e)
         {
-            TxtNovaCategoriaMP.BackColor = SystemColors.GradientActiveCaption;
-            TxtNovaCategoriaMP.SelectionStart = 0;
+            TxtPesoMP.BackColor = SystemColors.GradientActiveCaption;
+            TxtPesoMP.SelectionStart = 0;
         }
 
-        private void TxtNovaCategoriaMP_Leave(object sender, EventArgs e)
+        private void TxtPesoMP_Leave(object sender, EventArgs e)
         {
-            TxtNovaCategoriaMP.BackColor = SystemColors.Window;
+            TxtPesoMP.BackColor = SystemColors.Window;
         }
 
-        private void TxtPrecoUnitarioMP_Enter(object sender, EventArgs e)
+        private void TxtValorUnitarioMP_Enter(object sender, EventArgs e)
         {
-            TxtPrecoUnitarioMP.BackColor = SystemColors.GradientActiveCaption;
-            TxtPrecoUnitarioMP.SelectionStart = 0;
+            TxtValorUnitarioMP.BackColor = SystemColors.GradientActiveCaption;
+            TxtValorUnitarioMP.SelectionStart = 0;
         }
 
-        private void TxtPrecoUnitarioMP_Leave(object sender, EventArgs e)
+        private void TxtValorUnitarioMP_Leave(object sender, EventArgs e)
         {
-            TxtPrecoUnitarioMP.BackColor = SystemColors.Window;
-        }
-
-        private void TxtQuantidadeMP_Enter(object sender, EventArgs e)
-        {
-            TxtQuantidadeMP.BackColor = SystemColors.GradientActiveCaption;
-            TxtQuantidadeMP.SelectionStart = 0;
-        }
-
-        private void TxtQuantidadeMP_Leave(object sender, EventArgs e)
-        {
-            TxtQuantidadeMP.BackColor = SystemColors.Window;
+            TxtValorUnitarioMP.BackColor = SystemColors.Window;
         }
 
         private void CmbFornecedorMP_Enter(object sender, EventArgs e)
         {
             CmbFornecedorMP.BackColor = SystemColors.GradientActiveCaption;
-            CmbFornecedorMP.SelectionStart = 0;
+            CmbFornecedorMP.SelectionStart = 0; // Essa parte vai dar erro pq eu não coloquei pra ele pegar o primeiro indice da lista.
         }
 
         private void CmbFornecedorMP_Leave(object sender, EventArgs e)
@@ -88,72 +134,50 @@ namespace ModuloControleEstoque.View.UserC_Cadastros
             CmbFornecedorMP.BackColor = SystemColors.Window;
         }
 
-        private void CkbCadastrarMP_CheckedChanged(object sender, EventArgs e)
+        private void BtnCadastrarMP_MouseEnter(object sender, EventArgs e)
         {
-            
-            if(CkbCadastrarMP.Checked)
-            {
-                CmbCategoriaMP.SelectionStart = 0;
-                CmbCategoriaMP.Enabled = false;
-                TxtNovaCategoriaMP.Enabled = true;
-            }
-            else
-            {
-                TxtNovaCategoriaMP.Clear();
-                TxtNovaCategoriaMP.Enabled = false;
-                CmbCategoriaMP.Enabled = true;
-            }
+            BtnCadastrarMP.BackColor = SystemColors.GradientActiveCaption;
         }
 
-        private void BtnCadastrarFornecedor_MouseEnter(object sender, EventArgs e)
+        private void BtnCadastrarMP_MouseLeave(object sender, EventArgs e)
         {
-            BtnCadastrarFornecedor.BackColor = SystemColors.GradientActiveCaption;
+            BtnCadastrarMP.BackColor = SystemColors.Window;
         }
 
-        private void BtnCadastrarFornecedor_MouseLeave(object sender, EventArgs e)
+        private void TxtNomeMP_KeyPress(object sender, KeyPressEventArgs e)
         {
-            BtnCadastrarFornecedor.BackColor = SystemColors.Window;
-        }
-
-        // Código para alterar as cores dos botões: Fim ↑.
-
-        private void BtnCadastrarFornecedor_Click(object sender, EventArgs e)
-        {
-            bool vlCampos = _ctlMatPrima.CamposPrenchidos();
-            if (vlCampos)
+            if (!char.IsLetter(e.KeyChar) && (!char.IsWhiteSpace(e.KeyChar) && e.KeyChar != 8))
             {
-                MessageBox.Show("Todos os campos estão corretos.");
-            }
-            else
-            {
-                string msgErro = _ctlMatPrima.DscobrirErro();
-                if (msgErro != "O ERRO NÃO ESTA AQUI")
-                {
-                    MessageBox.Show(msgErro, "ATENÇÃO!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                e.Handled = true;
             }
         }
 
-        // Código de passagem de valores as properties: Início ↓
-
-        private void TxtNomeMP_TextChanged(object sender, EventArgs e)
+        private void TxtMaterialMP_KeyPress(object sender, KeyPressEventArgs e)
         {
-            _ctlMatPrima.Nome = TxtNomeMP.Text;
+            if (!char.IsLetter(e.KeyChar) && (!char.IsWhiteSpace(e.KeyChar) && e.KeyChar != 8))
+            {
+                e.Handled = true;
+            }
         }
 
-        private void TxtNovaCategoriaMP_TextChanged(object sender, EventArgs e)
+        private void TxtPesoMP_KeyPress(object sender, KeyPressEventArgs e)
         {
-            _ctlMatPrima.NovaCategoria = TxtNovaCategoriaMP.Text;
+            if (!char.IsDigit(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 44))
+            {
+                e.Handled = true;
+            }
         }
 
-        private void TxtPrecoUnitarioMP_TextChanged(object sender, EventArgs e)
+        private void TxtValorUnitarioMP_KeyPress(object sender, KeyPressEventArgs e)
         {
-            _ctlMatPrima.ValorUnitarioMp = TxtPrecoUnitarioMP.Text;
+            if (!char.IsDigit(e.KeyChar) && (e.KeyChar != 8) && (e.KeyChar != 44) && (e.KeyChar != 46))
+            {
+                e.Handled = true;
+            }
         }
 
-        private void TxtQuantidadeMP_TextChanged(object sender, EventArgs e)
-        {
-            _ctlMatPrima.QuantidadeMp = TxtQuantidadeMP.Text;
-        }
+        //------------------------------------Lógica para alterar as cores dos botões: Fim ↑.----------------------------------------- 
+
+
     }
 }

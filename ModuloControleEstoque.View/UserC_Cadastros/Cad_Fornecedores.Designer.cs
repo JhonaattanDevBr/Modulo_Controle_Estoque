@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.LblNomeFornecedor = new System.Windows.Forms.Label();
             this.LblCnpj = new System.Windows.Forms.Label();
             this.LblEmail = new System.Windows.Forms.Label();
@@ -46,6 +47,7 @@
             this.lblNumero = new System.Windows.Forms.Label();
             this.LblRua = new System.Windows.Forms.Label();
             this.btnCadastrarFornecedor = new System.Windows.Forms.Button();
+            this.TtpDica = new System.Windows.Forms.ToolTip(this.components);
             this.gpbCadFornecedor.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -148,10 +150,12 @@
             this.TxtNumero.Size = new System.Drawing.Size(260, 23);
             this.TxtNumero.TabIndex = 24;
             this.TxtNumero.Enter += new System.EventHandler(this.TxtNumero_Enter);
+            this.TxtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNumero_KeyPress);
             this.TxtNumero.Leave += new System.EventHandler(this.TxtNumero_Leave);
             // 
             // TxtRua
             // 
+            this.TxtRua.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TxtRua.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.TxtRua.Location = new System.Drawing.Point(3, 410);
             this.TxtRua.MaxLength = 100;
@@ -159,10 +163,12 @@
             this.TxtRua.Size = new System.Drawing.Size(260, 23);
             this.TxtRua.TabIndex = 23;
             this.TxtRua.Enter += new System.EventHandler(this.TxtRua_Enter);
+            this.TxtRua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtRua_KeyPress);
             this.TxtRua.Leave += new System.EventHandler(this.TxtRua_Leave);
             // 
             // TxtBairro
             // 
+            this.TxtBairro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TxtBairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.TxtBairro.Location = new System.Drawing.Point(6, 348);
             this.TxtBairro.MaxLength = 60;
@@ -170,10 +176,12 @@
             this.TxtBairro.Size = new System.Drawing.Size(260, 23);
             this.TxtBairro.TabIndex = 22;
             this.TxtBairro.Enter += new System.EventHandler(this.TxtBairro_Enter);
+            this.TxtBairro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBairro_KeyPress);
             this.TxtBairro.Leave += new System.EventHandler(this.TxtBairro_Leave);
             // 
             // TxtCidade
             // 
+            this.TxtCidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TxtCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.TxtCidade.Location = new System.Drawing.Point(6, 287);
             this.TxtCidade.MaxLength = 30;
@@ -181,10 +189,12 @@
             this.TxtCidade.Size = new System.Drawing.Size(260, 23);
             this.TxtCidade.TabIndex = 21;
             this.TxtCidade.Enter += new System.EventHandler(this.TxtCidade_Enter);
+            this.TxtCidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCidade_KeyPress);
             this.TxtCidade.Leave += new System.EventHandler(this.TxtCidade_Leave);
             // 
             // TxtTelefone
             // 
+            this.TxtTelefone.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TxtTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.TxtTelefone.Location = new System.Drawing.Point(6, 227);
             this.TxtTelefone.MaxLength = 14;
@@ -196,6 +206,7 @@
             // 
             // TxtEmail
             // 
+            this.TxtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TxtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.TxtEmail.Location = new System.Drawing.Point(6, 167);
             this.TxtEmail.MaxLength = 100;
@@ -207,6 +218,7 @@
             // 
             // TxtCnpj
             // 
+            this.TxtCnpj.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TxtCnpj.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.TxtCnpj.Location = new System.Drawing.Point(6, 110);
             this.TxtCnpj.MaxLength = 18;
@@ -218,6 +230,7 @@
             // 
             // TxtNomeFornecedor
             // 
+            this.TxtNomeFornecedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TxtNomeFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.TxtNomeFornecedor.Location = new System.Drawing.Point(6, 54);
             this.TxtNomeFornecedor.MaxLength = 50;
@@ -225,6 +238,7 @@
             this.TxtNomeFornecedor.Size = new System.Drawing.Size(260, 23);
             this.TxtNomeFornecedor.TabIndex = 17;
             this.TxtNomeFornecedor.Enter += new System.EventHandler(this.TxtNomeFornecedor_Enter);
+            this.TxtNomeFornecedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNomeFornecedor_KeyPress);
             this.TxtNomeFornecedor.Leave += new System.EventHandler(this.TxtNomeFornecedor_Leave);
             // 
             // lblNumero
@@ -263,6 +277,13 @@
             this.btnCadastrarFornecedor.MouseEnter += new System.EventHandler(this.btnCadastrar_MouseEnter);
             this.btnCadastrarFornecedor.MouseLeave += new System.EventHandler(this.btnCadastrar_MouseLeave);
             // 
+            // TtpDica
+            // 
+            this.TtpDica.AutomaticDelay = 5000;
+            this.TtpDica.AutoPopDelay = 4000;
+            this.TtpDica.InitialDelay = 100;
+            this.TtpDica.ReshowDelay = 200;
+            // 
             // Cad_Fornecedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,5 +317,6 @@
         private System.Windows.Forms.TextBox TxtTelefone;
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.TextBox TxtCnpj;
+        private System.Windows.Forms.ToolTip TtpDica;
     }
 }
