@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,70 +18,77 @@ namespace ModuloControleEstoque.View.UserC_Cadastros
         public Cad_Fornecedores()
         {
             InitializeComponent();
+            MostrarToolTip();
         }
 
         Ctl_Fornecedor _ControleFornecedor = new Ctl_Fornecedor();
         Mdl_Fornecedor _ModeloFornecedor = new Mdl_Fornecedor();
 
-        // Lógica do botão cadastrar: Começo ↓.
+        // ---------------------------------------Lógica do cadastro: Começo ↓.-----------------------------------
+
         private void btnCadastrarFornecedor_Click(object sender, EventArgs e)
+        {
+            bool caminho = PassarValores();
+            if (!caminho)
+            {
+                bool retornoCadastro = _ModeloFornecedor.CadastrarFornecedor(_ControleFornecedor);
+                if (retornoCadastro)
+                {
+                    MessageBox.Show("Fornecedor cadastrado com sucesso!", "Operação concluida com sucesso.");
+                    LimparCaixas();
+                }
+                else
+                {
+                    MessageBox.Show("Fornecedor não cadastrado!", "Falha na operação.");
+                }
+            }
+            else
+            {
+                PegarErros();
+            }
+        }
+
+        private bool PassarValores()
         {
             _ControleFornecedor.NomeFornecedor = TxtNomeFornecedor.Text;
             _ControleFornecedor.Cnpj = TxtCnpj.Text;
-            _ControleFornecedor.Email = TxtEmail.Text; // <- Ele não esta recebendo o vali
+            _ControleFornecedor.Email = TxtEmail.Text;
             _ControleFornecedor.Telefone = TxtTelefone.Text;
             _ControleFornecedor.Cidade = TxtCidade.Text;
             _ControleFornecedor.Bairro = TxtBairro.Text;
             _ControleFornecedor.Rua = TxtRua.Text;
             _ControleFornecedor.Numero = TxtNumero.Text;
 
-            if(!string.IsNullOrEmpty(TxtNomeFornecedor.Text) &&
-               !string.IsNullOrEmpty(TxtCnpj.Text) &&
-               !string.IsNullOrEmpty(TxtTelefone.Text) &&
-               !string.IsNullOrEmpty(TxtCidade.Text) &&
-               !string.IsNullOrEmpty(TxtBairro.Text))
+            bool camposVazios = _ControleFornecedor.CamposPrenchidos();
+            if (camposVazios)
             {
-                List<bool> retornoValido = new List<bool>();
-                string[] mensagemErro = new string[4];
-                mensagemErro[0] = "O formato do CPNJ não é válido.";
-                mensagemErro[1] = "Ensira todos os dígitos do CNPJ.";
-                mensagemErro[2] = "O formato do e-mail não é válido.";
-                mensagemErro[3] = "Ensira todos os dígitos do telefone.";
-
-                retornoValido = _ControleFornecedor.AutenticarDadosParaCadastro();
-
-                for (int i = 0; i < retornoValido.Count; i++)
-                {
-                    if (!retornoValido[i])
-                    {
-                        MessageBox.Show(mensagemErro[i], "Atenção!");
-                        break;
-                    }
-                    else
-                    {
-                        if (retornoValido[3])
-                        {
-                            bool retornoCadastro = _ModeloFornecedor.CadastrarFornecedor(_ControleFornecedor);
-                            if (retornoCadastro)
-                            {
-                                MessageBox.Show("Fornecedor cadastrado com sucesso.", "!Operação concluida com sucesso.");
-                                LimparCaixas();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Fornecedor não cadastrado.", "!Falha na operação.");
-                            }
-                        }
-                    }
-                }
+                return true;
             }
             else
             {
-                MessageBox.Show("Preencha todos os campos.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
             }
         }
 
-        // Lógica do botão cadastrar: Fim ↑.
+        private void PegarErros()
+        {
+            List<bool> retornoValido = new List<bool>();
+            string[] mensagemErro = new string[4];
+            mensagemErro[0] = "O formato do CPNJ não é válido.";
+            mensagemErro[1] = "Ensira todos os dígitos do CNPJ.";
+            mensagemErro[2] = "O formato do e-mail não é válido.";
+            mensagemErro[3] = "O formato do telefone não é válido.";
+
+            retornoValido = _ControleFornecedor.AutenticarDadosParaCadastro();
+            for (int i = 0; i < retornoValido.Count; i++)
+            {
+                if (!retornoValido[i])
+                {
+                    MessageBox.Show($"Prencha todos os campos! {mensagemErro[i]}", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                }
+            }
+        }
 
         private void LimparCaixas()
         {
@@ -90,9 +98,66 @@ namespace ModuloControleEstoque.View.UserC_Cadastros
             TxtTelefone.Clear();
             TxtCidade.Clear();
             TxtBairro.Clear();
+            TxtRua.Clear();
+            TxtNumero.Clear();
         }
 
-        // Código para alterar as cores dos botões: Começo ↓.
+        private void MostrarToolTip()
+        {
+            TtpDica.ToolTipTitle = "DICA";
+            TtpDica.IsBalloon = true;
+
+            TtpDica.SetToolTip(TxtCnpj, "XX.XXX.XXX/XXXX-X");
+            TtpDica.SetToolTip(TxtTelefone, "(XX)-XXXX-XXXX");
+        }
+
+        //------------------------------------Lógica do cadastro: Fim ↑.----------------------------------------- 
+
+        //------------------------------------Lógica de valores aceitos nos campos: Inicio ↓.----------------------------------------- 
+
+        private void TxtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && (e.KeyChar != 8))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtNomeFornecedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && (!char.IsWhiteSpace(e.KeyChar) && e.KeyChar != 8))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtCidade_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && (!char.IsWhiteSpace(e.KeyChar) && e.KeyChar != 8))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtBairro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && (!char.IsWhiteSpace(e.KeyChar) && e.KeyChar != 8))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtRua_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && (!char.IsWhiteSpace(e.KeyChar) && e.KeyChar != 8))
+            {
+                e.Handled = true;
+            }
+        }
+
+        //------------------------------------Lógica de valores aceitos nos campos: Fim ↑.----------------------------------------- 
+
+        //------------------------------------Lógica para alterar as cores dos botões: Começo ↓.----------------------------------------- 
 
         private void TxtNomeFornecedor_Enter(object sender, EventArgs e)
         {
@@ -192,6 +257,6 @@ namespace ModuloControleEstoque.View.UserC_Cadastros
             btnCadastrarFornecedor.BackColor = SystemColors.Window;
         }
 
-        // Código para alterar as cores dos botões: Fim ↑.
+        //------------------------------------Lógica para alterar as cores dos botões: Fim ↑.----------------------------------------- 
     }
 }

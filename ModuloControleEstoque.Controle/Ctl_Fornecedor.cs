@@ -118,21 +118,40 @@ namespace ModuloControleEstoque.Controle
                 _numero = null;
                 if (value != null && value.Length > 1)
                 {
-                    _numero = value;
+                    if (int.TryParse(value, out int valorFomatadoEmInteiro))
+                    {
+                        _numero = value;
+                    }
                 }
             }
         }
 
+
         public List<bool> AutenticarDadosParaCadastro()
         {
-            List<bool> isValid = new List<bool>();
-            isValid.Add(AutenticarFormatoCnpj());
-            isValid.Add(AutenticarTodosDigitosCnpj());
-            isValid.Add(AutenticarFormatoEmail());
-            isValid.Add(AutenticarTelefone());
+            List<bool> autenticado = new List<bool>();
+            autenticado.Add(AutenticarFormatoCnpj());
+            autenticado.Add(AutenticarTodosDigitosCnpj());
+            autenticado.Add(AutenticarFormatoEmail());
+            autenticado.Add(AutenticarTelefone());
             
-            return isValid;
+            return autenticado;
            
+        }
+
+        public bool CamposPrenchidos()
+        {
+            bool vazio = false;
+            if (string.IsNullOrEmpty(NomeFornecedor) || string.IsNullOrEmpty(Cnpj) || string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Telefone) ||
+                string.IsNullOrEmpty(Cidade) || string.IsNullOrEmpty(Bairro) || string.IsNullOrEmpty(Rua) || string.IsNullOrEmpty(Numero))
+            {
+                vazio = true;
+                return vazio;
+            }
+            else
+            {
+                return vazio;
+            }
         }
 
         private bool AutenticarFormatoCnpj()
@@ -197,17 +216,6 @@ namespace ModuloControleEstoque.Controle
 
         private bool AutenticarTelefone()
         {
-            /*string numTelefone = Telefone;
-            numTelefone = numTelefone.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "");
-            if (numTelefone.Length == 10)
-            {
-                return true;
-            }
-            else
-            {
-                //MENSAGEM: Ensira todos os dígitos do telefone.
-                return false;
-            }*/
             if (Telefone != null)
             {
                 string telefone = Telefone;
